@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>NordsNetwork</title>
     <link rel="stylesheet" href="css/homepage.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 
 
@@ -13,7 +14,7 @@
     <button type="submit" id="signIn">Sign In</button>
     <div class="control">
         <input name="password" type="password" value="" placeholder="Password" id="inPass" REQUIRED>
-        <input name="email" type="email" value="" placeholder="Email" id="inEmail" REQUIRED>
+            <input name="email" type="email" value="" placeholder="Email" id="inEmail" REQUIRED style="display: block">
     </div>
 
 </div>
@@ -22,26 +23,22 @@
         <div class="title">
             <h1>Signing Up</h1>
         </div>
-        <form class="form" action="#" method="post">
-            <div class="control">
-                <input name="firstName" type="text" value="" placeholder="First Name" id="firstName" REQUIRED>
+        <div class="control">
+                <input name="firstName" type="text" value="" placeholder="First Name" id="firstName">
             </div>
             <div class="control">
-                <input name="lastName" type="text" value="" placeholder="Last Name" id="lastName" REQUIRED>
+                <input name="lastName" type="text" value="" placeholder="Last Name" id="lastName">
             </div>
             <div class="control">
-                <input name="email" type="email" value="" placeholder="Email" id="email" REQUIRED>
+                <input name="email" type="email" value="" placeholder="Email" id="email">
             </div>
             <div class="control">
-                <input name="password" type="password" value="" placeholder="Password" id="pass" REQUIRED>
+                <input name="password" type="password" value="" placeholder="Password" id="pass">
             </div>
-            <div class="control">
-                <input name="birthday" type="date" value="" id="birthday" REQUIRED>
-            </div>
-
-            <button type="submit" class="btn">Create Account</button>
-        </form>
+            <button id="signUp" class="btn">Create Account</button>
+            <div id="error"></div>
     </div>
 </div>
+<script src="js/script.js"></script>
 </body>
 </html>

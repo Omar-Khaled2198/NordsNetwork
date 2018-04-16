@@ -54,7 +54,6 @@ body
 {
     color: white;
     font-size: 20px;
-
 }
 
 /*Make Post*/
@@ -69,8 +68,6 @@ body
     background-color: #FFFFFF;
     border: 1px black solid;
     box-shadow: 0 1px 30px rgba(0,0,0,.4);
-    padding-bottom: 10px;
-
 }
 .bar
 {
@@ -86,7 +83,7 @@ body
     border-radius: 50%;
     float: left;
 }
-.postOwner
+.user
 {
     float: left;
     text-align: center;
@@ -106,25 +103,26 @@ body
 }
 .textHolder
 {
-    margin: 10px;
     clear: both;
-    padding: 5px;
     height: 100%;
-    width: 725px;
+    width: 98%;
     word-wrap: break-word;
+    margin: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
-#text
+.text
 {
-    width: 100%;
+    width: inherit;
     height: 80px;
     resize: none;
     border: 1px #ddd solid;
     border-radius: 4px;
     word-wrap: break-word;
-
+    margin-left: 10px;
 }
 
-#postButton
+.submit
 {
     margin-right: 17px;
     float: right;
@@ -167,3 +165,20 @@ button
     height: 35px;
     width: 150px;
 }
+
+.editComment , .comment
+{
+    width: inherit;
+    height: auto;
+    background-color: whitesmoke;
+}
+.editComment .text
+{
+    height: 35px;
+    width: 75%;
+}
+.comment .textHolder
+{
+    padding-bottom: 5px;
+}
+

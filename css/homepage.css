@@ -128,8 +128,10 @@ input:focus {
 .btn:hover {
     background-color: #2980b9;
 }
-.error
+#error
 {
+    margin-top: 10px;
+    text-align: center;
     color: red;
-    font-size: 12px;
+    font-size: 15px;
 }
