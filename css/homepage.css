@@ -10,49 +10,58 @@ body
     padding:0px;
     width:100%;
 }
-#description
+#bar
 {
-    border-radius: 5px;
+    border: 1px black solid;
+    height: 60px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    padding: 5px;
+}
+#inEmail,#inPass
+{
+    float: right;
+    margin: 5px;
+    width: 200px;
+    height: 40px;
+    background-color: white;
+}
+#signIn
+{
+    border: 2px solid transparent;
+    background: #2980b9;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    height: 40px;
+    float:right;
+}
+#nordsnetwork
+{
     float: left;
-    margin-left: 50px;
-    margin-top: 50px;
-    height: 435px;
-    width: 810px;
-    padding: 10px;
+    margin-top: 2px;
+    font-size: 35px;
     color: white;
-    font-size: 60px;
     text-align: center;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    letter-spacing: 15px;
+    letter-spacing: 5px;
+    margin-left: 5px;
+
 }
-#back
+.signup
 {
-    position: absolute;
-    backface-visibility: hidden;
-}
-#face
-{
-    position: absolute;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-}
-/*
-#card:hover
-{
-    transform: rotateY(180deg);
-    transition-duration: 2s;
-}*/
-#card
-{
-    position: relative;
-    float: right;
-    margin-right: 60px;
-    margin-top: 50px;
+    margin:50px auto;
     width: 400px;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
+
 }
-.login-screen
+.signup-screen
 {
     border-radius: 5px;
     margin: auto;
@@ -112,7 +121,7 @@ input:focus {
     box-shadow: none;
     display: block;
     width: 250px;
-    margin: 5px auto;
+    margin: 0 auto;
     cursor: pointer;
 }
 
@@ -124,4 +133,3 @@ input:focus {
     color: red;
     font-size: 12px;
 }
-
