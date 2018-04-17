@@ -153,11 +153,21 @@ body
 }
 button
 {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration: none;
     text-align: center;
     background-color: #2980b9;
     border:0px;
     color: white;
     border-radius: 5px;
+}
+.options
+{
+    margin: 20px auto;
+    height: 35px;
+    width: 200px;
 }
 .like
 {
@@ -180,5 +190,14 @@ button
 .comment .textHolder
 {
     padding-bottom: 5px;
+}
+.likeCounter
+{
+    color: darkgrey;
+    margin-top: 5px;
+    font-size: 13px;
+    margin-right: 10px;
+    text-align: center;
+    float: right;
 }
 

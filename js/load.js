@@ -25,16 +25,12 @@ $(document).ready(function ()
         },4000);
     });
 
-
-
 });
-
 
 /**fuck this function **/
 function refreshPosts()
 {
     if($("#timeline").children().length>0) {
-        console.log(1);
     var settings = {
         async: false,
         crossDomain: true,
@@ -45,7 +41,6 @@ function refreshPosts()
     //console.log($("#timeline").children().last().attr("value"));
     $.ajax(settings).done(function (response)
     {
-        //console.log(response);
         $("#timeline").append(response);
     })};
 }
@@ -55,7 +50,6 @@ function refreshComments()
     $(".post").each(function () {
         if($(this).children(".commentContainer").children().length>0)
         {
-            console.log($(this).children(".commentContainer").children().last().attr("value"));
             var id=$(this).attr("id");
             var settings = {
                 async: false,
@@ -68,7 +62,6 @@ function refreshComments()
                 method: 'post',
             }
             $.ajax(settings).done(function (response) {
-                //console.log(response);
                 $("#"+id).children(".commentContainer").append(response);
             });
         }

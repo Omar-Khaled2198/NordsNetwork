@@ -4,7 +4,7 @@ session_start();
 include "connectDB.php";
 
 $option=$_POST["option"];
-
+$userId=$_SESSION["userId"];
 if($option==0)
 {
     $sql = "SELECT Posts.PostId, Posts.Likes, Posts.Text, Posts.UserId, Users.FirstName, Users.LastName
@@ -35,11 +35,23 @@ if ($result->num_rows > 0)
             </div>
         </div>
         <div class='textHolder'>" . $row["Text"] . "</div>
-        <div class='bottomBar'>
-            <button class='like' value='p".$row["PostId"]."'>Likes(" . $row["Likes"] . ")</button>
-        </div>
-        <div class='commentContainer'>
-        ";
+        <div class='bottomBar'>";
+        $postId=$row["PostId"];
+        $sql = "SELECT * FROM Likes Where UserId='$userId'AND PostId='$postId'";
+        $conn->query($sql);
+        $result3 = $conn->query($sql);
+
+        if ($result3->num_rows > 0)
+        {
+            $posts.="<button class='like' onclick='like(this)' value='".$row["PostId"]."'>Unlike</button>";
+        }
+        else
+        {
+            $posts.="<button class='like' onclick='like(this)' value='".$row["PostId"]."'>Like</button>";
+        }
+
+         $posts.="<div class='likeCounter'>".$row["Likes"]." Likes</div></div>
+        <div class='commentContainer'>";
         $id = $row['PostId'];
         $sql = "SELECT Comments.comment, Users.FirstName, Users.LastName,Comments.CommentId
               FROM Users
