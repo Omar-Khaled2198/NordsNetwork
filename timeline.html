@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="css/timeline.css">
-    <script src="jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
 </head>
 <body>
 <div class="sidenav">
@@ -21,12 +22,10 @@
         </div>
     </div>
     <div class="textHolder">
-            <textarea class="text">
-
-            </textarea>
+            <textarea id="content" class="text"></textarea>
     </div>
     <div class="bottomBar">
-        <button class="submit">Post</button>
+        <button id="postIt">Post</button>
     </div>
 
 </div>
@@ -43,6 +42,7 @@
         <div class="bottomBar">
             <button class="like">Like</button>
         </div>
+        <div class="commentContainer"></div>
         <div class="editComment">
             <div class="imageHolder"></div>
             <div class="user">
@@ -50,7 +50,7 @@
             </div>
             <div class="textHolder">
                 <textarea class="text"></textarea>
-                <button class="submit">Comment</button>
+                <button class="commentIt">Comment</button>
             </div>
         </div>
         <div class="comment">
@@ -65,7 +65,7 @@
         </div>
     </div>
 </div>
-
-</div>
+<script src="js/load.js"></script>
+<script src="js/features.js"></script>
 </body>
 </html>
