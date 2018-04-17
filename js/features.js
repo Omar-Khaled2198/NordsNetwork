@@ -10,14 +10,16 @@ $("#postIt").click(function () {
 
     $.ajax(settings).done(function (response)
     {
-        console.log(response);
+        //console.log(response);
         $("#timeline").append(response);
 
     });
 });
 
+
 function comment(id)
 {
+
     var settings =
         {
             async: false,

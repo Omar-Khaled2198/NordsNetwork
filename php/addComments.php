@@ -11,7 +11,9 @@ $sql = "INSERT INTO Comments (PostId, User, comment) VALUES
            ('$postId','$UserId', '$text')";
 $conn->query($sql);
 
-$comment="<div class='comment'>
+$id=$conn->insert_id;
+
+$comment="<div class='comment' id='c".$id."'value=".$id.">
                 <div class='imageHolder'></div>
                 <div class='user'>
                     <div class='name'>".$_SESSION["firstName"]." ".$_SESSION["lastName"]."</div>
