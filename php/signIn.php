@@ -2,6 +2,7 @@
 session_start();
 include "connectDB.php";
 
+
 if(!empty($_POST["email"])&&!empty($_POST["pass"]))
 {
     $UserId=mysqli_real_escape_string($conn,$_POST["email"]);
@@ -26,7 +27,6 @@ if(!empty($_POST["email"])&&!empty($_POST["pass"]))
         session_destroy();
     }
 
-    $conn->close();
     echo json_encode($auth);
 }
 else

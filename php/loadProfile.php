@@ -1,7 +1,10 @@
 <?php
 session_start();
-include "connectDB.php";
 
-$name=$_SESSION["firstName"]." ".$_SESSION["lastName"];
+if(isset($_SESSION["userId"])&&!empty($_SESSION["userId"])) {
+    include "connectDB.php";
 
-echo $name;
+    $name = $_SESSION["firstName"] . " " . $_SESSION["lastName"];
+
+    echo $name;
+}

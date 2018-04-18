@@ -1,6 +1,6 @@
 <?php
 
-$servername = "localhost:3306";
+$servername = "localhost:3306/NordsNetwork";
 $username = "root";
 $password = "123456789";
 $dbname = "NordsNetwork";

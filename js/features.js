@@ -1,6 +1,6 @@
 $("#postIt").click(function () {
     var settings = {
-        async: false,
+        async: true,
         crossDomain: true,
         data: {'text':$("#content").val()},
         url: 'php/addPosts.php',
@@ -10,8 +10,6 @@ $("#postIt").click(function () {
 
     $.ajax(settings).done(function (response)
     {
-        //console.log(response);
-        $("#timeline").append(response);
 
     });
 });
@@ -22,7 +20,7 @@ function comment(id)
 
     var settings =
         {
-            async: false,
+            async: true,
             crossDomain: true,
             data:
                 {
@@ -35,7 +33,7 @@ function comment(id)
         }
     $.ajax(settings).done(function (response)
     {
-        $("#"+id).children(".commentContainer").append(response);
+
     });
 };
 
@@ -55,7 +53,7 @@ function like(btn)
     }
     var settings =
         {
-            async: false,
+            async: true,
             crossDomain: true,
             data:
                 {

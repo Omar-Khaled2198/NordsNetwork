@@ -3,20 +3,22 @@
 session_start();
 include "connectDB.php";
 
+if(isset($_SESSION["userId"])&&!empty($_SESSION["userId"]))
+{
 $option=$_POST["option"];
 $userId=$_SESSION["userId"];
 if($option==0)
 {
-    $sql = "SELECT Posts.PostId, Posts.Likes, Posts.Text, Posts.UserId, Users.FirstName, Users.LastName
+    $sql = "SELECT Posts.PostId, Posts.Likes, Posts.Text, Posts.UserId, Users.FirstName, Users.LastName, Posts.dateposted
             FROM Users
-            INNER JOIN Posts ON Posts.UserId=Users.UserId";
+            INNER JOIN Posts ON Posts.UserId=Users.UserId ORDER BY Posts.PostId";
 }
 else
 {
     $lastPost=$_POST["lastPost"];
-    $sql = "SELECT Posts.PostId, Posts.Likes, Posts.Text, Posts.UserId, Users.FirstName, Users.LastName
+    $sql = "SELECT Posts.PostId, Posts.Likes, Posts.Text, Posts.UserId, Users.FirstName, Users.LastName, Posts.dateposted
             FROM Users
-            INNER JOIN Posts ON Posts.UserId=Users.UserId WHERE Posts.PostId>'$lastPost'";
+            INNER JOIN Posts ON Posts.UserId=Users.UserId WHERE Posts.PostId>'$lastPost' ORDER BY Posts.PostId";
 }
 
 $result = $conn->query($sql);
@@ -31,7 +33,7 @@ if ($result->num_rows > 0)
             <div class='imageHolder'></div>
             <div class='user'>
                 <div class='name'>" . $row["FirstName"] . " " . $row["LastName"] . "</div>
-                <div class='date'>DateHolder</div>
+                <div class='date'>".$row["dateposted"]."</div>
             </div>
         </div>
         <div class='textHolder'>" . $row["Text"] . "</div>
@@ -53,9 +55,9 @@ if ($result->num_rows > 0)
          $posts.="<div class='likeCounter'>".$row["Likes"]." Likes</div></div>
         <div class='commentContainer'>";
         $id = $row['PostId'];
-        $sql = "SELECT Comments.comment, Users.FirstName, Users.LastName,Comments.CommentId
+        $sql = "SELECT Comments.comment, Users.FirstName, Users.LastName, Comments.CommentId, Comments.dateposted
               FROM Users
-              INNER JOIN Comments ON Comments.User=Users.UserId Where Comments.PostId='$id'";
+              INNER JOIN Comments ON Comments.User=Users.UserId Where Comments.PostId='$id'ORDER BY Comments.CommentId";
         $results2 = $conn->query($sql);
         if ($results2->num_rows > 0)
         {
@@ -65,7 +67,7 @@ if ($result->num_rows > 0)
                             <div class='imageHolder'></div>
                             <div class='user'>
                                 <div class='name'>".$row2["FirstName"]." ".$row2["LastName"]."</div>
-                                <div class='date'>DateHolder</div>
+                                <div class='date'>".$row2["dateposted"]."</div>
                             </div>
                             <div class='textHolder'>
                                 <div class='textHolder'>".$row2["comment"]."</div>
@@ -86,4 +88,5 @@ if ($result->num_rows > 0)
     </div>";
     }
     echo $posts;
+}
 }

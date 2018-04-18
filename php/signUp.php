@@ -30,7 +30,6 @@ if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])&&!empty($_POST["email
             $auth = array("auth" => "false");
         }
 
-        $conn->close();
         echo json_encode($auth);
     }
 }
