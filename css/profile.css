@@ -3,11 +3,12 @@
     height: 180px;
     width: 100%;
     position: relative;
+    background-color: #1b95e0;
 }
 #coverImage
 {
     background-color: #1b95e0;
-  width: inherit;
+    width: inherit;
     height: inherit;
 }
 #pImageContainer
@@ -19,6 +20,7 @@
     position: absolute;
     left: 100px;
     bottom: -100px;
+    background-color: #1b95e0;
 }
 #pImage
 {

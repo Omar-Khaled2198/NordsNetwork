@@ -2,6 +2,11 @@
 
 session_start();
 include "php/connectDB.php";
+if(!isset($_SESSION["userId"])||empty($_SESSION["userId"]))
+{
+    header("Location: index.html");
+    exit();
+}
 $UserId=$_GET["userId"];
 
 $sql = "SELECT UserId, FirstName, LastName, ProfileImage FROM Users Where UserId='$UserId'";
@@ -26,6 +31,8 @@ $data = $result->fetch_assoc();
     <div class="barTitle">Nords Network</div>
     <input class="search" type="text" placeholder="Search Nords Network...">
     <div id="profile"  class="barButton"><?php echo $_SESSION["firstName"]?></div>
+    <div id="logOut" onclick="window.location='index.html'" class="barButton">Logout</div>
+
 </div>
 <div id="coverContainer">
     <img id="coverImage" src="">
@@ -73,5 +80,6 @@ $data = $result->fetch_assoc();
 </div>
 <script src="js/features.js"></script>
 <script src="js/load.js"></script>
+<script src="js/hashtag.js"></script> <!--https://markjs.io/-->
 </body>
 </html>

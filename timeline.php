@@ -2,6 +2,11 @@
 
 session_start();
 include "php/connectDB.php";
+if(!isset($_SESSION["userId"])||empty($_SESSION["userId"]))
+{
+    header("Location: index.html");
+    exit();
+}
 $UserId=$_SESSION["userId"];
 
 ?>
@@ -20,6 +25,7 @@ $UserId=$_SESSION["userId"];
     <div class="barTitle">Nords Network</div>
     <input class="search" type="text" placeholder="Search Nords Network...">
     <div id="profile" class="barButton"><?php echo $_SESSION["firstName"]?></div>
+    <div id="logOut" onclick="window.location='index.html'" class="barButton">Logout</div>
 </div>
 <div class="leftSideContainer">
     <div class="sideNav">
@@ -39,6 +45,10 @@ $UserId=$_SESSION["userId"];
         <div id="followersNum">Followers  <?php echo $user["Followers"]?></div>
     </div>
     <div class="sideNav">
+        <div class="followSuggest">#HashTags</div>
+        <?php
+           include "php/getHashtags.php";
+        ?>
     </div>
 </div>
 <div id="container">
@@ -67,7 +77,9 @@ $UserId=$_SESSION["userId"];
     <div id="timeline">
 
         <?php
-        $sql = "SELECT * FROM Users INNER JOIN Posts ON Posts.UserId=Users.UserId ORDER BY Posts.PostId";
+        $sql = "Select * from Follow Inner join Posts on Follow.User=Posts.UserId 
+            inner Join Users on Follow.Follower='$UserId' OR Users.UserId='$UserId' 
+            WHERE Users.UserId=Follow.User ORDER BY Posts.PostId";
         $_GET["sql"]=$sql;
         include "php/posts.php";
         ?>
@@ -84,5 +96,7 @@ $UserId=$_SESSION["userId"];
 </div>
 <script src="js/features.js"></script>
 <script src="js/load.js"></script>
+<script src="js/hashtag.js"></script> <!--https://markjs.io/-->
+<script src="js/realtime.js"></script>
 </body>
 </html>

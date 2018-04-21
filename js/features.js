@@ -19,7 +19,9 @@ $("#postIt").click(function ()
     $.ajax(settings).done(function (response)
     {
         console.log(response);
-        $("#edit").children(".posImageContainer").children(".postImage").attr("src",response);
+        $("#content").text("");
+        $("#edit").children(".posImageContainer").children(".postImage").attr("src","");
+
     });
 });
 

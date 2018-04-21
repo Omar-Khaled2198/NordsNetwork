@@ -21,7 +21,7 @@ body
 {
     float: right;
     margin: 5px;
-    width: 200px;
+    width: 15%;
     height: 40px;
     background-color: white;
 }
@@ -165,4 +165,11 @@ input:focus {
     text-align: center;
     color: red;
     font-size: 15px;
+}
+@media screen and (max-width: 992px)
+{
+    #nordsnetwork
+    {
+        font-size: 20px;
+    }
 }
