@@ -12,7 +12,7 @@ if($_FILES["file"]["name"] != '')
     $location = '../upload/' . $name;
     move_uploaded_file($_FILES["file"]["tmp_name"], $location);
     $location="upload/".$name;
-    $sql = "UPDATE Users SET ImageLocation='$location' WHERE UserId='$UserId'";
+    $sql = "UPDATE Users SET ProfileImage='$location' WHERE UserId='$UserId'";
     $conn->query($sql);
     $_SESSION["image"]=$location;
     echo $location;

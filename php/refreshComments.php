@@ -5,7 +5,7 @@ include 'connectDB.php';
 
 
 
-    $comments = "";
+         $comments = "";
          $postId = $_POST["postId"];
         $lastComment = $_POST["lastComment"];
         $sql = "SELECT *

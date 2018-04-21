@@ -13,12 +13,16 @@ $("#postIt").click(function ()
         contentType: false,
         url: 'php/addPosts.php',
         method: 'POST',
+        beforeSend: function() {
+            $('#loading').show();
+        },
 
     };
 
     $.ajax(settings).done(function (response)
     {
         console.log(response);
+        $('#loading').hide();
         $("#content").text("");
         $("#edit").children(".posImageContainer").children(".postImage").attr("src","");
 
@@ -40,9 +44,13 @@ function updateProfileImage()
             contentType: false,
             url: 'php/profileImage.php',
             method: 'POST',
+            beforeSend: function() {
+                $('#loading').show();
+            },
         };
         $.ajax(settings).done(function (response)
         {
+            $('#loading').hide();
             console.log(response);
             $("#pImage").attr("src",response);
         });
@@ -65,9 +73,13 @@ function uploadImage()
             contentType: false,
             url: 'php/uploadImage.php',
             method: 'POST',
+            beforeSend: function() {
+                $('#loading').show();
+            },
         };
         $.ajax(settings).done(function (response)
         {
+            $('#loading').hide();
             console.log(response);
             $("#edit").children(".posImageContainer").children(".postImage").attr("src",response);
         });
@@ -88,10 +100,14 @@ function comment(id)
                 },
             url: 'php/addComments.php',
             method: 'POST',
+            beforeSend: function() {
+                $('#loading').show();
+            },
 
         }
     $.ajax(settings).done(function (response)
     {
+        $('#loading').hide();
         console.log(response);
     });
 };
@@ -131,17 +147,16 @@ function like(btn)
 
 function follow(btn)
 {
-
     var value;
-    if(btn.innerHTML=="Follow +")
+    if(btn.innerHTML==="Follow+")
     {
         value=1;
-        btn.innerHTML="Unfollow -";
+        btn.innerHTML="Unfollow-";
     }
     else
     {
         value=-1;
-        btn.innerHTML="Follow +";
+        btn.innerHTML="Follow+";
     }
     var settings =
         {

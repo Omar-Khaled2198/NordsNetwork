@@ -45,6 +45,7 @@ body
     font-weight: bold;
     font-size: 30px;
     margin-left: auto;
+    margin-right: auto;
 }
 .barButton:hover
 {
@@ -149,7 +150,7 @@ body
 #profileName
 {
     text-align: center;
-    margin-top: 40%;
+    margin-top: 40px;
     margin-left: 10%;
 }
 .image
@@ -441,4 +442,11 @@ mark
     {
         font-size: 20px;
     }
+}
+#loading
+{
+    top: 45%;
+    left: 45%;
+    position: fixed;
+    display: none;
 }

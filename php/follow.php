@@ -18,7 +18,7 @@ if(isset($_SESSION["userId"])&&!empty($_SESSION["userId"]))
     }
     else
     {
-        $sql = "DELETE FROM Follow WHERE '$UserId','$Follower'";
+        $sql = "DELETE FROM Follow WHERE User='$UserId'And Follower='$Follower'";
         $conn->query($sql);
         echo -1;
     }

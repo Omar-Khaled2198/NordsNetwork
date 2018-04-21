@@ -27,7 +27,6 @@ $UserId=$_SESSION["userId"];
 <div id="bar">
     <div id="home" class="barButton">Home</div>
     <div class="barTitle">Nords Network</div>
-    <input class="search" type="text" placeholder="Search Nords Network...">
     <div style="background-color: #1b95e0; color: white" id="profile" class="barButton"><?php echo $_SESSION["firstName"]?></div>
     <div id="logOut" onclick="window.location='index.html'" class="barButton">Logout</div>
 </div>
@@ -46,15 +45,16 @@ $UserId=$_SESSION["userId"];
         $result = $conn->query($sql);
         $user = $result->fetch_assoc();
         ?>
-        <div id="postsNum">Posts <?php echo $user["Posts"]?></div>
-        <div id="FollowingNum">Following  <?php echo $user["Following"]?></div>
-        <div id="followersNum">Followers  <?php echo $user["Followers"]?></div>
+        <div id="postsNum">Posts<br> <?php echo $user["Posts"]?></div>
+        <div id="FollowingNum">Following<br>  <?php echo $user["Following"]?></div>
+        <div id="followersNum">Followers<br>  <?php echo $user["Followers"]?></div>
     </div>
     <button onclick="updateProfileImage()" id="updateImage" >Upload Image</button>
 </div>
 <div class="leftSideContainer">
 
 </div>
+<div id="loading"><img src="img/5(1).gif"></div>
 <div id="container">
     <div id="edit">
         <div class="bar">
@@ -96,5 +96,6 @@ $UserId=$_SESSION["userId"];
 <script src="js/features.js"></script>
 <script src="js/load.js"></script>
 <script src="js/hashtag.js"></script> <!--https://markjs.io/-->
+<script src="js/realtimeProfile.js"></script>
 </body>
 </html>

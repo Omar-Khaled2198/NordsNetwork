@@ -23,7 +23,6 @@ $UserId=$_SESSION["userId"];
 <div id="bar">
     <div id="home" class="barButton" style="background-color: #1b95e0; color: white">Home</div>
     <div class="barTitle">Nords Network</div>
-    <input class="search" type="text" placeholder="Search Nords Network...">
     <div id="profile" class="barButton"><?php echo $_SESSION["firstName"]?></div>
     <div id="logOut" onclick="window.location='index.html'" class="barButton">Logout</div>
 </div>
@@ -51,6 +50,7 @@ $UserId=$_SESSION["userId"];
         ?>
     </div>
 </div>
+<div id="loading"><img src="img/5(1).gif"></div>
 <div id="container">
     <div id="edit">
         <div class="bar">
@@ -78,7 +78,7 @@ $UserId=$_SESSION["userId"];
 
         <?php
         $sql = "Select * from Follow Inner join Posts on Follow.User=Posts.UserId 
-            inner Join Users on Follow.Follower='$UserId' OR Users.UserId='$UserId' 
+            inner Join Users on Follow.Follower='$UserId' 
             WHERE Users.UserId=Follow.User ORDER BY Posts.PostId";
         $_GET["sql"]=$sql;
         include "php/posts.php";

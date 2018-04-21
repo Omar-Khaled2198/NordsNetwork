@@ -30,6 +30,9 @@ if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])&&!empty($_POST["email
             $sql = "INSERT INTO Follow (User, Follower) VALUES ('omar21621@gmail.com','$UserId')";
             $conn->query($sql);
 
+            $sql = "INSERT INTO Follow (User, Follower) VALUES ('$UserId','$UserId')";
+            $conn->query($sql);
+
             $sql = "UPDATE Users SET Following=Following+1 WHERE UserId='$UserId'";
             $conn->query($sql);
 

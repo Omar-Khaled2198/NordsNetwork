@@ -11,15 +11,16 @@ $(document).ready(function ()
 
 function refreshPosts()
 {
-    console.log(1);
+    //console.log(1);
     var lastPost=-1;
     if($("#timeline").children().length>0)
         lastPost=$("#timeline").children().last().attr("value");
+    console.log(lastPost);
     var settings = {
         async: true,
         crossDomain: true,
         url: 'php/refreshPosts.php',
-        data:{'option':1,'lastPost':lastPost},
+        data:{'option':2,'lastPost':lastPost},
         method: 'post',
     }
     $.ajax(settings).done(function (response)

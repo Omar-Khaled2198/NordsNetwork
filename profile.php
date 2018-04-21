@@ -8,7 +8,7 @@ if(!isset($_SESSION["userId"])||empty($_SESSION["userId"]))
     exit();
 }
 $UserId=$_GET["userId"];
-
+$me=$_SESSION["userId"];
 $sql = "SELECT UserId, FirstName, LastName, ProfileImage FROM Users Where UserId='$UserId'";
 
 $result = $conn->query($sql);
@@ -29,13 +29,11 @@ $data = $result->fetch_assoc();
 <div id="bar">
     <div id="home" class="barButton">Home</div>
     <div class="barTitle">Nords Network</div>
-    <input class="search" type="text" placeholder="Search Nords Network...">
     <div id="profile"  class="barButton"><?php echo $_SESSION["firstName"]?></div>
     <div id="logOut" onclick="window.location='index.html'" class="barButton">Logout</div>
 
 </div>
 <div id="coverContainer">
-    <img id="coverImage" src="">
     <div id="pImageContainer">
         <img id="pImage" src="<?php echo $data["ProfileImage"]?>">
     </div>
@@ -51,11 +49,19 @@ $data = $result->fetch_assoc();
         $user = $result->fetch_assoc();
         ?>
 
-        <div id="postsNum">Posts <?php echo $user["Posts"]?></div>
-        <div id="FollowingNum">Following  <?php echo $user["Following"]?></div>
-        <div id="followersNum">Followers  <?php echo $user["Followers"]?></div>
+        <div id="postsNum">Posts<br> <?php echo $user["Posts"]?></div>
+        <div id="FollowingNum">Following<br>  <?php echo $user["Following"]?></div>
+        <div id="followersNum">Followers<br>  <?php echo $user["Followers"]?></div>
     </div>
-    <button id="follow" onclick="follow(this)" value=<?php echo $UserId?>>Follow +</button>
+    <?php
+      $sql = "Select * From Follow WHERE User='$UserId' AND Follower='$me'";
+      $result=$conn->query($sql);
+      if($result->num_rows>0)
+          echo "<button id='follow' onclick='follow(this)' value='$UserId'>Unfollow-</button>";
+      else
+          echo "<button id='follow' onclick='follow(this)' value='$UserId'>Follow+</button>";
+    ?>
+
 </div>
 <div class="leftSideContainer">
 

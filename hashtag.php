@@ -24,8 +24,9 @@ $UserId=$_SESSION["userId"];
 <div id="bar">
     <div id="home" class="barButton">Home</div>
     <div class="barTitle">Nords Network</div>
-    <input class="search" type="text" placeholder="Search Nords Network...">
-    <div id="profile" class="barButton"><?php echo $_SESSION["firstName"]?></div>
+    <div id="profile"  class="barButton"><?php echo $_SESSION["firstName"]?></div>
+    <div id="logOut" onclick="window.location='index.html'" class="barButton">Logout</div>
+
 </div>
 <div class="leftSideContainer">
     <div class="sideNav">
