@@ -1,0 +1,77 @@
+#coverContainer
+{
+    height: 180px;
+    width: 100%;
+    position: relative;
+}
+#coverImage
+{
+    background-color: #1b95e0;
+  width: inherit;
+    height: inherit;
+}
+#pImageContainer
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    left: 100px;
+    bottom: -100px;
+}
+#pImage
+{
+    border: 5px white solid;
+    border-radius: 50%;
+    height: inherit;
+    width: inherit;
+    background-color: #1b95e0;
+}
+#infoBar
+{
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+    height: 50px;
+    width: 100%;
+    display: flex;
+    padding-left: 300px;
+    padding-right: 40px;
+}
+.infoBarName
+{
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 200px;
+    word-wrap: normal;
+    margin-right: 20px;
+}
+#infos
+{
+    display: flex;
+    justify-content:space-between;
+}
+.numbers
+{
+    width: 100px;
+    height: inherit;
+    margin-right: 20px;
+    color: #66757f;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.numbers:hover
+{
+    color: #1b95e0;
+    border-bottom: 3px #1b95e0 solid;
+}
+#updateImage, #follow
+{
+    margin-left: auto;
+    float: right;
+    margin-top: 5px;
+    height: 40px;
+}

@@ -15,15 +15,16 @@ if(!empty($_POST["firstName"])&&!empty($_POST["lastName"])&&!empty($_POST["email
         $sql = "SELECT UserId FROM Users Where UserId='$UserId'";
 
         $result = $conn->query($sql);
-
+        $imageLocation="img/profile.png";
         if ($result->num_rows == 0) {
             session_start();
-            $sql = "INSERT INTO Users (UserId, FirstName, LastName, Password) VALUES 
-           ('$UserId', '$FirstName','$LastName', '$Password')";
+            $sql = "INSERT INTO Users (UserId, FirstName, LastName, Password ,Posts, Followers, Following, ImageLocation) VALUES 
+           ('$UserId', '$FirstName','$LastName', '$Password',0 , 0 , 0, '$imageLocation')";
             $conn->query($sql);
             $_SESSION["userId"] = $UserId;
             $_SESSION["firstName"] = $FirstName;
             $_SESSION["lastName"] = $LastName;
+            $_SESSION["image"]=$imageLocation;
             $auth = array("auth" => "true");
 
         } else {

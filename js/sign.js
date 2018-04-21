@@ -28,13 +28,14 @@ $("#signIn").click(function ()
         $.ajax(settings).done(function (response)
         {
             var jsonObj=JSON.parse(response);
+
             if(jsonObj["auth"]==="false")
             {
                 $("#inEmail").val("").css('border-color', 'red');
                 $("#inPass").val("").css('border-color', 'red');
             }
             else
-                window.location.replace("timeline.html");
+                window.location="timeline.php";
 
         });
     });
@@ -85,6 +86,6 @@ $("#signUp").click(function ()
             $("#email").val("").css('border-color', 'red');
         }
         else
-            window.location.replace("timeline.html");
+            window.location="timeline.php";
     });
 });

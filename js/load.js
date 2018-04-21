@@ -1,8 +1,9 @@
+/*
 $(document).ready(function ()
 {
-    $("#name").load("php/loadProfile.php",function ()
+    $("#profileName").load("php/loadProfile.php",function ()
     {
-        $("#edit").children('.bar').children('.user').children('.name').html($("#name").text());
+        $("#edit").children('.bar').children('.user').children('.name').html($("#profileName").text());
     });
 
     var settings = {
@@ -13,7 +14,6 @@ $(document).ready(function ()
         method: 'post',
     }
 
-    /**After done from appending posts to timeline call function refresh every 3s**/
     $.ajax(settings).done(function (response)
     {
         $("#timeline").html(response);
@@ -27,7 +27,6 @@ $(document).ready(function ()
 
 });
 
-/**fuck this function **/
 function refreshPosts()
 {
     var lastPost=-1;
@@ -70,3 +69,23 @@ function refreshComments()
         });
     });
 }
+
+$(".text").hashtagger({hashClass: "hashtag"});
+*/
+function go(user)
+{
+    var id=user.id;
+    window.location="profile.php?userId="+id;
+}
+
+$(document).ready(function ()
+{
+
+    $("#home").click(function () {
+        window.location="timeline.php";
+    })
+
+    $("#profile").click(function () {
+        window.location="myprofile.php";
+    })
+});

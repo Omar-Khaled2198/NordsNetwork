@@ -9,7 +9,7 @@ if(!empty($_POST["email"])&&!empty($_POST["pass"]))
     $Password=mysqli_real_escape_string($conn,$_POST["pass"]);
 
 
-    $sql = "SELECT UserId, FirstName, LastName FROM Users Where UserId='$UserId'AND Password='$Password'";
+    $sql = "SELECT UserId, FirstName, LastName, ProfileImage FROM Users Where UserId='$UserId'AND Password='$Password'";
 
     $result = $conn->query($sql);
 
@@ -20,6 +20,7 @@ if(!empty($_POST["email"])&&!empty($_POST["pass"]))
         $_SESSION["userId"]=$data["UserId"];
         $_SESSION["firstName"]=$data["FirstName"];
         $_SESSION["lastName"]=$data["LastName"];
+        $_SESSION["image"]=$data["ProfileImage"];
     }
     else
     {

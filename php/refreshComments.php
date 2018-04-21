@@ -24,7 +24,7 @@ include 'connectDB.php';
                         <div class='date'>".$row["dateposted"]."</div>
                     </div>
                     <div class='textHolder'>
-                        <div class='textHolder'>" . $row["comment"] . "</div>
+                        ".$row["comment"]."
                     </div>
                 </div>";
             }
